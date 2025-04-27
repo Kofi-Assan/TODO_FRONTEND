@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://todo-backend-fan5.onrender.com/api';
 let resources = [];
 
 // DOM Elements
@@ -319,17 +319,3 @@ async function handleBooking(e) {
         showError(error.message || 'Failed to book resource. Please try again.');
     }
 }
-
-
-const style = document.createElement('style');
-style.textContent = `
-    .no-resources {
-        text-align: center;
-        padding: 20px;
-        background-color: white;
-        border-radius: 8px;
-        color: #666;
-        grid-column: 1 / -1;
-    }
-`;
-document.head.appendChild(style); 

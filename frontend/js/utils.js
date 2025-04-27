@@ -28,7 +28,7 @@ function addClickSoundToElements() {
         mutations.forEach((mutation) => {
             if (mutation.addedNodes.length) {
                 mutation.addedNodes.forEach((node) => {
-                    if (node.nodeType === 1) { // Check if it's an element node
+                    if (node.nodeType === 1) { 
                         const newClickableElements = node.querySelectorAll(`
                             a, button, 
                             .btn-book, .btn-primary, .btn-secondary, .filter-btn,

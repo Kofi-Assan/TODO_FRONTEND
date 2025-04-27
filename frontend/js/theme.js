@@ -1,4 +1,4 @@
-// Theme configuration
+// Configuring theme
 const theme = {
     palette: {
         primary: {
@@ -22,5 +22,5 @@ const theme = {
     }
 };
 
-// Export the theme configuration
+
 export default theme; 

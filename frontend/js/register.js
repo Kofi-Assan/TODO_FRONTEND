@@ -8,7 +8,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
 
-    // Validate passwords match
+    
     if (password !== confirmPassword) {
         showError('Passwords do not match');
         return;

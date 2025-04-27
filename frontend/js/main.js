@@ -1,7 +1,6 @@
-// API base URL
 const API_URL = 'http://localhost:5000/api';
 
-// Fetch available resources
+
 async function fetchResources() {
     try {
         const token = localStorage.getItem('token');
@@ -23,7 +22,7 @@ async function fetchResources() {
     }
 }
 
-// Fetch user's bookings
+
 async function fetchBookings() {
     try {
         const token = localStorage.getItem('token');

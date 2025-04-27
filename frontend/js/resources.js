@@ -11,7 +11,7 @@ const resourcesList = document.getElementById('resourcesList');
 const categoryFilters = document.querySelectorAll('[data-category]');
 const statusFilters = document.querySelectorAll('[data-status]');
 
-// Current filters
+
 let currentFilters = {
     category: 'all',
     status: 'all'
@@ -320,7 +320,7 @@ async function handleBooking(e) {
     }
 }
 
-// Add styles for no resources message
+
 const style = document.createElement('style');
 style.textContent = `
     .no-resources {

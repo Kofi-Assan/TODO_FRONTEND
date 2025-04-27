@@ -1,4 +1,4 @@
-const API_URL = 'https://todo-backend-fan5.onrender.com/api';
+const API_URL = 'https://todo-backend-9we3.onrender.com/api';
 
 // This Check if user is admin on page load
 document.addEventListener('DOMContentLoaded', async () => {

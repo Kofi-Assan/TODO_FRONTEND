@@ -1,4 +1,4 @@
-const API_URL = 'https://todo-backend-9we3.onrender.com/api';
+const API_URL = 'http://localhost:5000/api';
 
 // This Check if user is admin on page load
 document.addEventListener('DOMContentLoaded', async () => {
@@ -34,6 +34,7 @@ function setupTabs() {
     });
 }
 
+// Setup event listeners
 function setupEventListeners() {
     const modal = document.getElementById('resourceModal');
     const closeBtn = document.querySelector('.close');
@@ -48,6 +49,7 @@ function setupEventListeners() {
     document.getElementById('resourceForm').addEventListener('submit', handleResourceSubmit);
 }
 
+// Load resources
 async function loadResources() {
     try {
         const token = localStorage.getItem('token');
@@ -67,6 +69,7 @@ async function loadResources() {
     }
 }
 
+// Display resources in admin panel
 function displayResources(resources) {
     const list = document.getElementById('adminResourcesList');
     list.innerHTML = '';
@@ -93,6 +96,7 @@ function displayResources(resources) {
     });
 }
 
+// Load all bookings
 async function loadBookings() {
     try {
         const token = localStorage.getItem('token');
@@ -112,6 +116,7 @@ async function loadBookings() {
     }
 }
 
+// Display bookings in admin panel
 function displayBookings(bookings) {
     const list = document.getElementById('adminBookingsList');
     list.innerHTML = '';
@@ -149,13 +154,13 @@ function displayBookings(bookings) {
         list.appendChild(item);
     });
 
-    
+    // Add message if no bookings
     if (bookings.length === 0) {
         list.innerHTML = '<div class="no-bookings">No bookings found</div>';
     }
 }
 
-
+// Load all users
 async function loadUsers() {
     try {
         const token = localStorage.getItem('token');
@@ -175,7 +180,7 @@ async function loadUsers() {
     }
 }
 
-
+// Display users in admin panel
 function displayUsers(users) {
     const list = document.getElementById('adminUsersList');
     list.innerHTML = '';
@@ -202,7 +207,7 @@ function displayUsers(users) {
     });
 }
 
-
+// Open modal to add new resource
 function openAddResourceModal() {
     document.getElementById('resourceModalTitle').textContent = 'Add New Resource';
     document.getElementById('resourceForm').reset();
@@ -210,7 +215,7 @@ function openAddResourceModal() {
     document.getElementById('resourceModal').style.display = 'block';
 }
 
-
+// Open modal to edit resource
 async function editResource(id) {
     try {
         const token = localStorage.getItem('token');
@@ -237,7 +242,7 @@ async function editResource(id) {
     }
 }
 
-
+// Handle resource form submission
 async function handleResourceSubmit(e) {
     e.preventDefault();
 
@@ -247,10 +252,10 @@ async function handleResourceSubmit(e) {
         description: document.getElementById('description').value.trim(),
         category: document.getElementById('category').value.toLowerCase(),
         status: 'available',
-        capacity: 1  
+        capacity: 1  // Add default capacity value
     };
 
-    
+    // Validate required fields
     if (!resource.name || !resource.description || !resource.category) {
         showError('Please fill in all required fields');
         return;
@@ -295,7 +300,7 @@ async function handleResourceSubmit(e) {
     }
 }
 
-
+// Delete resource
 async function deleteResource(id) {
     if (!confirm('Are you sure you want to delete this resource?')) return;
 
@@ -318,7 +323,7 @@ async function deleteResource(id) {
     }
 }
 
-
+// Cancel booking
 async function cancelBooking(id) {
     if (!confirm('Are you sure you want to cancel this booking?')) return;
 
@@ -342,7 +347,7 @@ async function cancelBooking(id) {
     }
 }
 
-
+// Toggle user role between admin and user
 async function toggleUserRole(id) {
     try {
         const token = localStorage.getItem('token');
@@ -363,7 +368,7 @@ async function toggleUserRole(id) {
     }
 }
 
-
+// Show error message
 function showError(message) {
     const errorDiv = document.createElement('div');
     errorDiv.className = 'error-message';
@@ -372,7 +377,7 @@ function showError(message) {
     setTimeout(() => errorDiv.remove(), 5000);
 }
 
-
+// Show success message
 function showSuccess(message) {
     const successDiv = document.createElement('div');
     successDiv.className = 'success-message';

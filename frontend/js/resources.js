@@ -1,4 +1,4 @@
-const API_URL = 'https://todo-backend-9we3.onrender.com/api';
+const API_URL = 'http://localhost:5000/api';
 let resources = [];
 
 // DOM Elements
@@ -11,7 +11,7 @@ const resourcesList = document.getElementById('resourcesList');
 const categoryFilters = document.querySelectorAll('[data-category]');
 const statusFilters = document.querySelectorAll('[data-status]');
 
-
+// Current filters
 let currentFilters = {
     category: 'all',
     status: 'all'
@@ -319,3 +319,17 @@ async function handleBooking(e) {
         showError(error.message || 'Failed to book resource. Please try again.');
     }
 }
+
+// Add styles for no resources message
+const style = document.createElement('style');
+style.textContent = `
+    .no-resources {
+        text-align: center;
+        padding: 20px;
+        background-color: white;
+        border-radius: 8px;
+        color: #666;
+        grid-column: 1 / -1;
+    }
+`;
+document.head.appendChild(style); 

@@ -1,4 +1,4 @@
-
+// Check if user is logged in
 function checkAuth() {
     const token = localStorage.getItem('token');
     // Prevent redirect loop if already on login page
@@ -9,20 +9,20 @@ function checkAuth() {
     return token;
 }
 
-
+// Get current user
 function getCurrentUser() {
     const userStr = localStorage.getItem('user');
     if (!userStr) return null;
     return JSON.parse(userStr);
 }
 
-
+// Check if user is admin
 function isAdmin() {
     const user = getCurrentUser();
     return user && user.role === 'admin';
 }
 
-
+// Handle admin access
 function handleAdminAccess() {
     const adminLink = document.getElementById('adminLink');
     if (adminLink) {
@@ -35,21 +35,21 @@ function handleAdminAccess() {
     }
 }
 
-
+// Handle logout
 function logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     window.location.href = '/login.html';
 }
 
-
+// Initialize auth on page load
 document.addEventListener('DOMContentLoaded', function() {
     const token = checkAuth();
     if (!token) return;
     
     handleAdminAccess();
     
-    
+    // Set up logout button
     const logoutBtn = document.getElementById('logoutBtn');
     if (logoutBtn) {
         logoutBtn.addEventListener('click', logout);

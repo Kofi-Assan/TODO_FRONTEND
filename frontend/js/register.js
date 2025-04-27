@@ -1,4 +1,4 @@
-const API_URL = 'https://todo-backend-9we3.onrender.com/api';
+const API_URL = 'http://localhost:5000/api';
 
 document.getElementById('registerForm').addEventListener('submit', async function(e) {
     e.preventDefault();
@@ -8,7 +8,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
 
-    
+    // Validate passwords match
     if (password !== confirmPassword) {
         showError('Passwords do not match');
         return;

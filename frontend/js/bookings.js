@@ -1,4 +1,4 @@
-const API_URL = 'https://todo-backend-9we3.onrender.com/api';
+const API_URL = 'http://localhost:5000/api';
 
 document.addEventListener('DOMContentLoaded', async () => {
     const token = localStorage.getItem('token');

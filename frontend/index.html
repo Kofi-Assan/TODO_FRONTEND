@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Resource Booking</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏫</text></svg>">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <script>
+        // Redirect to login if not authenticated
+        if (!localStorage.getItem('token')) {
+            window.location.href = '/login.html';
+        }
+    </script>
+    <nav class="navbar">
+        <a href="/" class="navbar-brand">Campus Resources</a>
+        <div class="navbar-links">
+            <a href="/resources.html">RESOURCES</a>
+            <a href="/admin.html" id="adminLink" style="display: none;">ADMIN</a>
+            <a href="#" id="logoutBtn">LOGOUT</a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="welcome-section">
+            <h1>Welcome to Campus Resource Booking</h1>
+        </section>
+
+        <div class="cards-container">
+            <div class="card">
+                <h2>Available Resources</h2>
+                <p>Browse and book available campus resources such as meeting rooms, equipment, and facilities.</p>
+                <button onclick="window.location.href='/resources.html'">VIEW RESOURCES</button>
+            </div>
+
+            <div class="card">
+                <h2>My Bookings</h2>
+                <p>Manage your existing bookings and view your booking history.</p>
+                <button onclick="window.location.href='/bookings.html'">VIEW BOOKINGS</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/auth.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Initialize click sound for all clickable elements
+        document.addEventListener('DOMContentLoaded', function() {
+            addClickSoundToElements();
+        });
+    </script>
+</body>
+</html>

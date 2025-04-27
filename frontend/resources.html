@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Resources</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏫</text></svg>">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="navbar-brand">Campus Resources</a>
+        <div class="navbar-links">
+            <a href="/resources.html" class="active">RESOURCES</a>
+            <a href="/admin.html" id="adminLink" style="display: none;">ADMIN</a>
+            <a href="#" onclick="logout()">LOGOUT</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="header">
+            <h1>Manage Resources</h1>
+        </div>
+
+        <div class="filters-section">
+            <div class="filter-group">
+                <label>Category:</label>
+                <div class="filter-options">
+                    <button class="filter-btn active" data-category="all">All</button>
+                    <button class="filter-btn" data-category="Room">Room</button>
+                    <button class="filter-btn" data-category="Equipment">Equipment</button>
+                    <button class="filter-btn" data-category="Facility">Facility</button>
+                </div>
+            </div>
+            <div class="filter-group">
+                <label>Status:</label>
+                <div class="filter-options">
+                    <button class="filter-btn active" data-status="all">All</button>
+                    <button class="filter-btn" data-status="Available">Available</button>
+                    <button class="filter-btn" data-status="Booked">Booked</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="resources-list" id="resourcesList">
+            <!-- Resources will be dynamically loaded here -->
+        </div>
+    </main>
+
+    <script src="js/auth.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/resources.js"></script>
+    <script>
+        // Initialize click sound for all clickable elements
+        document.addEventListener('DOMContentLoaded', function() {
+            addClickSoundToElements();
+        });
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</body>
+</html> 
